@@ -3,22 +3,22 @@
 __ziplink () {
     local regex
     regex='(https?)://github.com/.+/.+'
-    if [[ $PANDA_USERBOT_REPO == "PANDA_USERBOT" ]]
+    if [[ $PRIME_USERBOT_REPO == "PRIME_USERBOT" ]]
     then
-        echo "aHR0cHM6Ly9naXRodWIuY29tL2lsaGFtbWFuc2l6L1BhbmRhWF9Vc2VyYm90L2FyY2hpdmUvUGFuZGFVc2VyYm90LnppcA==" | base64 -d
-    elif [[ $PANDA_USERBOT_REPO == "UTAMA_USERBOT" ]]
+        echo "aHR0cHM6Ly9naXRodWIuY29tL0J1a2FuRGV2L1ByaW1lLVVzZXJib3QvYXJjaGl2ZS9tYXN0ZXIuemlw" | base64 -d
+    elif [[ $PRIME_USERBOT_REPO == "UTAMA_USERBOT" ]]
     then
-        echo "aHR0cHM6Ly9naXRodWIuY29tL2lsaGFtbWFuc2l6L1BhbmRhWF9Vc2VyYm90L2FyY2hpdmUvUGFuZGFVc2VyYm90LnppcA==" | base64 -d
-    elif [[ $PANDA_USERBOT_REPO =~ $regex ]]
+        echo "aHR0cHM6Ly9naXRodWIuY29tL0J1a2FuRGV2L1ByaW1lLVVzZXJib3QvYXJjaGl2ZS9tYXN0ZXIuemlw" | base64 -d
+    elif [[ $PRIME_USERBOT_REPO =~ $regex ]]
     then
-        if [[ $PANDA_USERBOT_REPO_BRANCH ]]
+        if [[ $PRIME_USERBOT_REPO_BRANCH ]]
         then
-            echo "${PANDA_USERBOT_REPO}/archive/${PANDA_USERBOT_REPO_BRANCH}.zip"
+            echo "${PRIME_USERBOT_REPO}/archive/${PRIME_USERBOT_REPO_BRANCH}.zip"
         else
-            echo "${PANDA_USERBOT_REPO}/archive/PandaUserbot.zip"
+            echo "${PRIME_USERBOT_REPO}/archive/master.zip"
         fi
     else
-        echo "aHR0cHM6Ly9naXRodWIuY29tL2lsaGFtbWFuc2l6L1BhbmRhWF9Vc2VyYm90L2FyY2hpdmUvUGFuZGFVc2VyYm90LnppcA==" | base64 -d
+        echo "aHR0cHM6Ly9naXRodWIuY29tL0J1a2FuRGV2L1ByaW1lLVVzZXJib3QvYXJjaGl2ZS9tYXN0ZXIuemlw" | base64 -d
     fi
 }
 
@@ -26,11 +26,11 @@ __repolink () {
     local regex
     local rlink
     regex='(https?)://github.com/.+/.+'
-    if [[ $UPSTREAM_REPO == "PANDA_USERBOT" ]]
+    if [[ $UPSTREAM_REPO == "PRIME_USERBOT" ]]
     then
         rlink=`echo "${UPSTREAM_REPO}"`
     else
-        rlink=`echo "aHR0cHM6Ly9naXRodWIuY29tL2lsaGFtbWFuc2l6L1BhbmRhWF9Vc2VyYm90" | base64 -d`
+        rlink=`echo "aHR0cHM6Ly9naXRodWIuY29tL0J1a2FuRGV2L1ByaW1lLVVzZXJib3Q=" | base64 -d`
     fi
     echo "$rlink"
 }
@@ -45,7 +45,7 @@ _install_python_version() {
 _install_deploy_git() {
     $(_install_python_version 'from git import Repo
 import sys
-OFFICIAL_UPSTREAM_REPO = "https://github.com/ilhammansiz/DEPLOY"
+OFFICIAL_UPSTREAM_REPO = "https://github.com/Toni880/DEPLOY"
 ACTIVE_BRANCH_NAME = "PandaUserbot"
 repo = Repo.init()
 origin = repo.create_remote("temponame", OFFICIAL_UPSTREAM_REPO)
